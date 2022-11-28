@@ -6,6 +6,17 @@ canvas.height = 64 * 9;
 
 const player = new Player();
 
+const keys = {
+  w: {
+    pressed: false,
+  },
+  a: {
+    pressed: false,
+  },
+  d: {
+    pressed: false,
+  },
+};
 //let bottom = y + 100
 
 function animate() {
@@ -13,12 +24,12 @@ function animate() {
   c.fillStyle = "white";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
+  player.velocity.x = 0;
+  if (keys.d.pressed) player.velocity.x = 5;
+  else if (keys.a.pressed) player.velocity.x = -5;
+
   player.drawn();
   player.update();
 }
 
 animate();
-
-window.addEventListener("keydown", (event) => {
-  console.log(event)
-});
