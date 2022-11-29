@@ -25,6 +25,8 @@ const backgroundLevel1 = new Sprite({
 });
 const player = new Player({
   collisionBlocks,
+  imageSrc: './img/player-1/Meow-Knight_Idle.png',
+  frameRate: 6,
 });
 
 const keys = {
