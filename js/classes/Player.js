@@ -18,7 +18,7 @@ class Player {
     this.gravity = 1;
   }
 
-  drawn() {
+  draw() {
     c.fillStyle = "red";
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
