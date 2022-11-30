@@ -1,4 +1,13 @@
-body{
+*{
     margin: 0;
-    background: black;
+    padding: 0;
+}
+
+.canvas-container {
+    background: #33323d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 }

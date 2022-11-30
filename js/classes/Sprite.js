@@ -1,5 +1,5 @@
 class Sprite {
-  constructor({ position, imageSrc, frameRate = 1}) {
+  constructor({ position, imageSrc, frameRate = 1 }) {
     this.position = position;
     this.image = new Image();
     this.image.onload = () => {
@@ -10,12 +10,15 @@ class Sprite {
     this.image.src = imageSrc;
     this.loaded = false;
     this.frameRate = frameRate;
+    this.currentFrame = 0;
+    this.elapsedFrames = 0;
+    this.frameBuffer = 2;
   }
   draw() {
     if (!this.loaded) return;
     const cropbox = {
       position: {
-        x: 0,
+        x: this.width * this.currentFrame,
         y: 0,
       },
       width: this.width,
@@ -30,7 +33,15 @@ class Sprite {
       this.position.x,
       this.position.y,
       this.width,
-      this.height,
+      this.height
     );
+  }
+
+  updateFrames() {
+    this.currentFrame++;
+    if (this.elapsedFrames % this.frameBuffer === 0) {
+      if (this.currentFrame < this.frameRate - 1) this.currentFrame++;
+      else this.currentFrame = 0;
+    }
   }
 }
