@@ -21,7 +21,7 @@ class Player extends Sprite {
   }
 
   update() {
-    c.fillStyle = "rgba(0, 0, 255, 0.5)";
+    c.fillStyle = "rgba(0, 0, 255, 0)";
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
 
     this.position.x += this.velocity.x;
